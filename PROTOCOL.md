@@ -1194,7 +1194,7 @@ Control/旧单连接接收全局模式状态增量，不受所订阅会话过滤
 - `session/title` → `{title, source?}`
 - `tool/call` → `{turn, step, callId, name, arguments}`
 - `deliverables/presented` → `{turn, callId, files: [{path, description?}]}`，用于本轮回复下方的文件卡片。
-- `tool/result` → `{turn, step, callId, isError, preview(≤400字符), output, outputTruncated, error?}`
+- `tool/result` → `{turn, step, callId, isError, preview(≤400字符), output, outputTruncated, images?: ImageAttachmentRef[], error?}`；`images` 为工具结果里的图片块（与消息正文同形），客户端按 `attachment` 请求拉取字节。
 - `turn/start|end` / `step/start|end` → `{turn, step, reason?, reasonDetails?}`，保留原有 `reason` 字符串；`reasonDetails` 提供结构化终态错误或取消来源。
 - `llm/retry` → `{turn, step, retryId, retry, maxRetries?, delayMs, provider, mode, failure}`。
 - `llm/retry-started` → `{turn, step, retryId, retry}`。
